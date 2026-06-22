@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竞彩网 · 赛事资料索引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: #ffffff;
+            color: #1e2b3a;
+            line-height: 1.7;
+        }
+
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 3rem;
+        }
+
+        /* 顶部导航 */
+        .top-nav {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding: 0.75rem 0 1.5rem;
+            border-bottom: 1px solid #e8edf2;
+            margin-bottom: 2.5rem;
+        }
+
+        .site-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #1e2b3a;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5e6f7e;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #0f6d4a;
+        }
+
+        /* hero 区 */
+        .hero {
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: -0.3px;
+            color: #0f2a1e;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: #3f4f5e;
+            max-width: 600px;
+        }
+
+        .hero .accent {
+            color: #0f6d4a;
+        }
+
+        /* 介绍段落 */
+        .intro-text {
+            margin-bottom: 2.8rem;
+            font-size: 0.98rem;
+            color: #2b3d4b;
+        }
+
+        .intro-text a {
+            color: #0f6d4a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #b6d0c0;
+        }
+
+        .intro-text a:hover {
+            text-decoration-color: #0f6d4a;
+        }
+
+        /* 场景模块 —— 三个卡片 */
+        .scenes {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .scene-item {
+            display: flex;
+            gap: 1.2rem;
+            align-items: flex-start;
+            padding: 1.2rem 1.4rem;
+            border-left: 3px solid #dce6ee;
+            background: #f9fbfd;
+            border-radius: 0 8px 8px 0;
+            transition: border-color 0.25s, background 0.2s;
+        }
+
+        .scene-item:hover {
+            border-left-color: #0f6d4a;
+            background: #f4f9f5;
+        }
+
+        .scene-num {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #8a9aa8;
+            min-width: 28px;
+            letter-spacing: 1px;
+        }
+
+        .scene-content h3 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #1a2c38;
+            margin-bottom: 0.4rem;
+        }
+
+        .scene-content p {
+            font-size: 0.93rem;
+            color: #3f5665;
+            line-height: 1.65;
+        }
+
+        /* 常见说明块 */
+        .faq-block {
+            margin: 2.8rem 0 2.2rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e8edf2;
+        }
+
+        .faq-title {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #14222e;
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item {
+            padding: 0.7rem 0;
+            border-bottom: 1px dashed #eaedf0;
+        }
+
+        .faq-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: #1a2b38;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-a {
+            font-size: 0.9rem;
+            color: #506575;
+            line-height: 1.6;
+        }
+
+        .faq-a a {
+            color: #0f6d4a;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        /* 底部 */
+        .footer-note {
+            margin-top: 3.5rem;
+            font-size: 0.8rem;
+            color: #7b8c9b;
+            border-top: 1px solid #edf1f5;
+            padding-top: 1.6rem;
+            text-align: center;
+            letter-spacing: 0.3px;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 500px) {
+            .page {
+                padding: 1.2rem 1rem 2.5rem;
+            }
+            .top-nav {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .scene-item {
+                flex-direction: column;
+                gap: 0.4rem;
+                padding: 1rem;
+            }
+            .scene-num {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <span class="site-name">资料索引</span>
+        <div class="nav-links">
+            <a href="#intro">导读</a>
+            <a href="#scenes">场景</a>
+            <a href="#faq">说明</a>
+        </div>
+    </nav>
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>赛事资料 · 信息整理</h1>
+        <p>从数据分类、历史归档到日常查阅，围绕 <span class="accent">竞彩</span> 相关内容的索引方式，提供一份结构化的参考路径。</p>
+    </div>
+
+    <!-- 核心介绍 -->
+    <div class="intro-text" id="intro">
+        <p>对于长期关注足球、篮球赛事信息的人来说，资料的组织方式会直接影响查阅效率。无论是赛前数据、联赛积分还是历史对阵，一个清晰的索引结构能节省大量重复搜索的时间。<a href="https://home-app-sporttery.com">竞彩网</a> 本身提供基础赛事列表与即时比分，但若希望围绕特定联赛、球队或时间段建立自己的资料夹，就需要对信息源做进一步的归类与标记。下文整理了三种常见的资料整理场景，供参考。</p>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scenes" id="scenes">
+        <!-- 场景 1 -->
+        <div class="scene-item">
+            <span class="scene-num">01</span>
+            <div class="scene-content">
+                <h3>赛事归档与标记</h3>
+                <p>将每日赛果、赔率变动与重要事件按联赛分类，配合标签体系（如“焦点战”“冷门”“逆转”）建立可检索的本地记录。结合 <a href="https://home-app-sporttery.com">竞彩网</a> 的赛程数据，可快速定位日期与对阵，减少手动录入成本。</p>
+            </div>
+        </div>
+        <!-- 场景 2 -->
+        <div class="scene-item">
+            <span class="scene-num">02</span>
+            <div class="scene-content">
+                <h3>历史交锋与趋势整理</h3>
+                <p>针对特定球队或联赛，提取近 10 次交锋的比分、控球率、红黄牌等关键数据，形成简洁的趋势表格。资料源可来自 <a href="https://home-app-sporttery.com">竞彩网</a> 的详细统计页面，再结合外部数据做交叉验证，便于长期跟踪。</p>
+            </div>
+        </div>
+        <!-- 场景 3 -->
+        <div class="scene-item">
+            <span class="scene-num">03</span>
+            <div class="scene-content">
+                <h3>每日信息简报</h3>
+                <p>从海量赛事中筛选出当天关注度较高的 3–5 场，汇总队伍近况、伤停信息与天气影响。利用 <a href="https://home-app-sporttery.com">竞彩网</a> 的即时更新机制，可以快速核对阵容与开赛时间，形成个人化的简报草稿。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 常见说明 -->
+    <div class="faq-block" id="faq">
+        <div class="faq-title">常见说明</div>
+
+        <div class="faq-item">
+            <div class="faq-q">资料索引与信息来源的关系？</div>
+            <div class="faq-a">索引本身不生产数据，而是帮助使用者更高效地定位已有信息。<a href="https://home-app-sporttery.com">竞彩网</a> 提供基础赛事框架，个人索引在此基础上增加分类、备注与历史标签，二者互补。</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">是否需要手动更新所有数据？</div>
+            <div class="faq-a">视整理深度而定。仅做赛程标记与结果记录，每周投入 20–30 分钟即可维护。若涉及详细技术统计或赔率曲线，建议搭配自动化脚本或第三方工具辅助。</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">适合哪种类型的用户？</div>
+            <div class="faq-a">适合有固定关注联赛、希望建立个人赛事资料库的爱好者，以及习惯用表格或笔记管理信息的资料型用户。不依赖实时推荐，更侧重长期记录与回顾。</div>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        资料整理参考 · 信息索引方法
+    </div>
+
+</div>
+</body>
+</html>
